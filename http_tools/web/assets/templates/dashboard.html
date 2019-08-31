@@ -1,0 +1,177 @@
+{%extends "_base.html" %}
+
+{% block contents %}
+
+<meta name="project" content="{{ project }}">
+<script src="/static/js/jstree.min.js"></script>
+<link rel="stylesheet" href="/static/css/tree_themes/default/style.min.css" />
+
+<style type="text/css">
+   textarea {
+ 
+  width: 100%;
+  height: 500px;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-radius: 6px 6px 6px 6px;
+  border-style: none solid solid none;
+  border-width: medium 1px 1px medium;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+  color: #555555;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+}
+textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+</style>
+<br>
+
+<!-- Fuzzers Modal -->
+<div id="fuzz" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Send to Fuzzers</h4>
+      </div>
+      <div class="modal-body">
+          <div class="box-body no-padding">
+            <p>Forward the requests to BurpSuite, OWASP ZAP etc.</p>
+            <form id="fz" method="POST" action="/repeat/{{project}}">
+              <div class="form-group">
+                <label for="proxy">Fuzzer Proxy</label>
+                <input type="text" class="form-control" name="proxy" value="http://127.0.0.1:8080">
+              </div>
+              <button type="submit" class="btn btn-info">Repeat Requests</button>
+            </form>
+          </div>
+
+        </div>
+      
+      </div>
+
+  </div>
+</div>
+
+
+
+<!-- Content -->
+<h2 class="page-header"></h2>
+<div class="request_view">
+<div class="row">
+    <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title"><button type="button" class="btn btn-info btn-xs" onclick="show_projects()"> <span class="glyphicon glyphicon-list-alt"></span>  PROJECTS</button></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="btn-group">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#fuzz">Send to Fuzzer</button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">CAPTURED TRAFFIC</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+               <div id="jstree_div">
+                {% for domain, sub_flow in sorted_flows.items() %}
+                  <ul>
+                    <li data-jstree='{"icon":"glyphicon glyphicon-globe"}' id="{{domain}}">{{domain}}
+                      {% for flw in sub_flow %}
+                      <ul>
+                        <li data-jstree='{"icon":"  glyphicon glyphicon-file"}' id="{{ flw['id']}}" data-url="{{flw['url']}}">{{flw['method']}} {{flw['relative']}}</li>
+                      </ul>
+                       {% end %} 
+                    </li>
+                  </ul>
+                {% end %} 
+               </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+          <div class="col-md-7">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">REQUEST &amp; RESPONSE</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                    <div id="req_res">
+                      <h6 class="box-title">REQUEST</h6>
+                    <textarea class="form-control" rows="10" id="request">
+              
+                    </textarea>
+                    
+                      <h6 class="box-title">RESPONSE</h6>
+                    <textarea class="form-control" rows="10" id="response">
+                      
+                    </textarea>
+                    </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+</div>
+</div>
+
+
+<!-- Projects  -->
+<div id="projects" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Projects</h4>
+      </div>
+      <div class="modal-body">
+          <!-- /.box-header -->
+          <div class="box-body no-padding">
+             <select id="project_name" size="5">
+              {% for pp in projects %}
+                <option value="{{ pp }}">{{pp}}</option> 
+              {% end %}
+             </select>
+             <div class="modal-footer">
+               <div class="col-md-12 text-center"> 
+               <button type="button" class="btn btn-info" onclick="load_project()">Load Project</button>
+             </div>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+<!-- scripts -->
+<script src="/static/js/custom/dashboard.js" type="text/javascript"></script>
+<script src="/static/js/custom/fuzzer.js" type="text/javascript"></script>
+<script src="/static/js/custom/utils.js" type="text/javascript"></script>
+<script src="/static/js/jquery.growl.js" type="text/javascript"></script>
+<link href="/static/css/jquery.growl.css" rel="stylesheet" type="text/css" />
+
+{% end %}

@@ -1,0 +1,2 @@
+recursive-include http_tools *.txt
+recursive-include http_tools/web/assets *

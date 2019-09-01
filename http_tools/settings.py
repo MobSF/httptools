@@ -4,5 +4,5 @@ from pathlib import Path
 PROXY_HOST = '0.0.0.0'
 PROXY_PORT = 1337
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-HOME_DIR = os.path.join(str(Path.home()), '.cpz')
+HOME_DIR = os.path.join(str(Path.home()), '.httptools')
 FLOWS_DIR = os.path.join(HOME_DIR, 'flows')

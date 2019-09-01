@@ -12,7 +12,7 @@ pip install http-tools
 ```
 $ git clone https://github.com/MobSF/httptools.git
 $ cd httptools
-$ python setup.py devlop
+$ python setup.py develop
 ```
 
 ### Usage

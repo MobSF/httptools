@@ -10,6 +10,7 @@ import http_tools.settings as settings
 
 def run_module(mode, project_name, host, port, upstream):
     flow_file = os.path.join(settings.FLOWS_DIR, project_name + '.flow')
+    script_dir = os.path.join(settings.BASE_PATH, 'modules')
     arguments = [
         '--listen-host', host,
         '--listen-port', str(port)]
@@ -19,12 +20,12 @@ def run_module(mode, project_name, host, port, upstream):
             'upstream:{}'.format(upstream)])
     if mode == 'capture':
         arguments.extend([
-            '--scripts', 'http_tools/modules/capture.py',
+            '--scripts', os.path.join(script_dir, 'capture.py'),
             '--save-stream-file', flow_file,
             '--flow-detail', '0'])
     elif mode == 'intercept':
         arguments.extend([
-            '--scripts', 'http_tools/modules/interceptor.py'])
+            '--scripts', os.path.join(script_dir, 'interceptor.py')])
     elif mode == 'repeat':
         arguments = [
             '-n',

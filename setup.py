@@ -8,7 +8,7 @@ description = ('httptools helps you to capture, repeat'
                '[mitmproxy](https://mitmproxy.org/)')
 setup(
     name='http-tools',
-    version='1.0.1',
+    version='1.0.2',
     description=description,
     author='Ajin Abraham',
     author_email='ajin25@gmail.com',

@@ -3,6 +3,7 @@ import os
 import urllib.parse
 
 from mitmproxy import io
+from mitmproxy.http import HTTPFlow
 
 import http_tools.settings as settings
 
@@ -75,6 +76,8 @@ def get_sorted_flows(flows):
     # Add URL under domains
     sorted_flows = {}
     for flow in flows:
+        if not isinstance(flow, HTTPFlow):
+            continue
         domain = get_protocol_domain(flow.request.url, False)
         meta = {'id': flow.id, 'method': flow.request.method,
                 'relative': flow.request.url.replace(domain, '', 1),

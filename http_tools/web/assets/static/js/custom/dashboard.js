@@ -1,7 +1,7 @@
 
   //Flow Selection Event Handler
   $('#jstree_div').on("changed.jstree", function (e, data) {
-    selected_nodes = data.selected
+    var selected_nodes = data.selected
     for (var i = 0; i < selected_nodes.length; i++) {
         if (selected_nodes[i].startsWith("http")){
         console.log("Domain: " + selected_nodes[i]);
@@ -60,7 +60,7 @@
 
 
   function load_project(){
-    uri = $("#project_name option:selected").val();
+    var uri = $("#project_name option:selected").val();
     localStorage.clear();
     location.href = "/dashboard/" + uri;
   }

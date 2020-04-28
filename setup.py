@@ -8,7 +8,7 @@ description = ('httptools helps you to capture, repeat'
                '[mitmproxy](https://mitmproxy.org/)')
 setup(
     name='http-tools',
-    version='1.1.0',
+    version='1.1.1',
     description=description,
     author='Ajin Abraham',
     author_email='ajin25@gmail.com',
@@ -32,6 +32,6 @@ setup(
     url='https://github.com/MobSF/httptools',
     long_description=description,
     install_requires=[
-        'mitmproxy==5.0.1',
+        'mitmproxy>=5.0.1',
     ],
 )

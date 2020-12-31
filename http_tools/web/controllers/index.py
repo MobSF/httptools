@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Web Interface Handlers."""
 import tornado
 import tornado.web
 

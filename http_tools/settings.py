@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Default httptools settings."""
+
 import os
 from pathlib import Path
 # Proxy and Web GUI

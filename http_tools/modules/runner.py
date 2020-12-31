@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Mitmproxy runners."""
 import os
 
 from mitmproxy.tools import (

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Web Dashboard Functions."""
 import os
 import glob
 from pathlib import PurePath

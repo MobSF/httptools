@@ -1,6 +1,15 @@
+"""HTTP tools setup."""
 from setuptools import (
     find_packages,
     setup)
+
+from pathlib import Path
+
+
+def read(rel_path):
+    init = Path(__file__).resolve().parent / rel_path
+    return init.read_text('utf-8', 'ignore')
+
 
 description = ('httptools helps you to capture, repeat'
                ' and live intercept HTTP requests. It '
@@ -8,7 +17,7 @@ description = ('httptools helps you to capture, repeat'
                '[mitmproxy](https://mitmproxy.org/)')
 setup(
     name='http-tools',
-    version='1.1.1',
+    version='2.0.0',
     description=description,
     author='Ajin Abraham',
     author_email='ajin25@gmail.com',
@@ -16,8 +25,9 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-        'Programming Language :: Python :: 3',
+        ('License :: OSI Approved :: '
+         'GNU Lesser General Public License v2 (LGPLv2)'),
+        'Programming Language :: Python :: 3.6',
     ],
     packages=find_packages(include=[
         'http_tools', 'http_tools.*',
@@ -30,8 +40,9 @@ setup(
     },
     include_package_data=True,
     url='https://github.com/MobSF/httptools',
-    long_description=description,
+    long_description=read('README.md'),
+    long_description_content_type='text/markdown',
     install_requires=[
-        'mitmproxy>=5.3.0<6',
+        'mitmproxy==5.3.0',
     ],
 )

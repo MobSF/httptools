@@ -1,4 +1,6 @@
-
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Utils for flows."""
 import os
 import urllib.parse
 
@@ -9,7 +11,7 @@ import http_tools.settings as settings
 
 
 def get_flow_file(flow_name):
-    """Get Flow File Safetly"""
+    """Get Flow File Safetly."""
     flow_name = flow_name + '.flow'
     flow_dir = settings.FLOWS_DIR
     requested_path = os.path.join(flow_dir, flow_name)

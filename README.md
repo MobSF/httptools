@@ -3,8 +3,10 @@
 ## capture | intercept | repeat
 httptools helps you to capture, repeat and live intercept HTTP requests with scripting capabilities. It is built on top of [mitmproxy v5](https://mitmproxy.org/)
 
+[![Requirements Status](https://requires.io/github/MobSF/httptools/requirements.svg?branch=master)](https://requires.io/github/MobSF/httptools/requirements/?branch=master)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/MobSF/httptools.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MobSF/httptools/context:python)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/MobSF/httptools.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MobSF/httptools/context:javascript)
+
 ### Install
 
 ```

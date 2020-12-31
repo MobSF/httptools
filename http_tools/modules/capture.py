@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
 """Dump HTTP Traffic."""
 import sys
 
@@ -14,7 +16,7 @@ class HTTPDump:
         self.http_f = open(self.http_dump_file, 'w')
 
     def save_http(self, httpflow):
-        """Dump HTTP Request and Response"""
+        """Dump HTTP Request and Response."""
         self.http_f.write('========\n')
         self.http_f.write('REQUEST\n')
         self.http_f.write('========\n')

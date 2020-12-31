@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""Web UI and server."""
 import os
 import sys
 

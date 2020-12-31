@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf_8 -*-
+"""The Main."""
 import os
 import sys
 import signal

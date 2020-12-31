@@ -32,6 +32,6 @@ setup(
     url='https://github.com/MobSF/httptools',
     long_description=description,
     install_requires=[
-        'mitmproxy>=5.0.1',
+        'mitmproxy>=5.0.1<6.0.0',
     ],
 )

@@ -42,7 +42,7 @@ optional arguments:
    * Starts HTTPS proxy at `0.0.0.0:1337` by default.
    * Install Root CA cert from `http://mitm.it/`
 2. Repeat - `httptools -m repeat`
-   * Replay the captured traffic. Use --upstream to forwatd it to
+   * Replay the captured traffic. Use --upstream to forward it to
      a fuzzer like BurpSuite or OWASP ZAP.
 3. Intercept - `httptools -m intercept`
    * To Fiddle with HTTP request and response in live.

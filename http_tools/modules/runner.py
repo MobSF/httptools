@@ -6,7 +6,7 @@ import os
 from mitmproxy.tools import (
     cmdline,
     dump)
-from mitmproxy.tools._main import run
+from mitmproxy.tools.main import run
 
 import http_tools.settings as settings
 

@@ -21,7 +21,6 @@ setup(
     description=description,
     author='Ajin Abraham',
     author_email='ajin25@gmail.com',
-    license='GPL v3',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

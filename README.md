@@ -10,10 +10,6 @@ Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82
 [![python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![http-tools](https://github.com/MobSF/httptools/workflows/http-tools/badge.svg?branch=master)](https://github.com/MobSF/httptools/actions)
 
-[![Requirements Status](https://requires.io/github/MobSF/httptools/requirements.svg?branch=master)](https://requires.io/github/MobSF/httptools/requirements/?branch=master)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/MobSF/httptools.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MobSF/httptools/context:python)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/MobSF/httptools.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MobSF/httptools/context:javascript)
-
 ### Install
 
 ```

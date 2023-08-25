@@ -26,7 +26,7 @@ setup(
         'Intended Audience :: Developers',
         ('License :: OSI Approved :: GNU Lesser '
          'General Public License v3 or later (LGPLv3+)'),
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.9',
     ],
     packages=find_packages(include=[
         'http_tools', 'http_tools.*',

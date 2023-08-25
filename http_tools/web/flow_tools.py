@@ -44,16 +44,17 @@ def get_flow_meta(flow):
         'content': content,
     }
     # Response
-    response_headers = get_headers(flow.response.headers)
-    res_content = flow.response.content.decode(
-        'utf-8', 'ignore') if flow.response.content else ''
-    flow_meta['response'] = {
-        'http_version': flow.response.http_version,
-        'status_code': flow.response.status_code,
-        'reason': flow.response.reason,
-        'headers': response_headers,
-        'content': res_content,
-    }
+    if hasattr(flow.response, 'headers'):
+        response_headers = get_headers(flow.response.headers)
+        res_content = flow.response.content.decode(
+            'utf-8', 'ignore') if flow.response.content else ''
+        flow_meta['response'] = {
+            'http_version': flow.response.http_version,
+            'status_code': flow.response.status_code,
+            'reason': flow.response.reason,
+            'headers': response_headers,
+            'content': res_content,
+        }
     return flow_meta
 
 

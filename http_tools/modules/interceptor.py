@@ -5,12 +5,9 @@
 import typing
 
 import mitmproxy.addonmanager
-import mitmproxy.connections
 import mitmproxy.http
 import mitmproxy.log
 import mitmproxy.tcp
-import mitmproxy.websocket
-import mitmproxy.proxy.protocol
 
 
 class Interceptor:
@@ -101,13 +98,13 @@ class Interceptor:
         attribute.
         """
 
-    def websocket_start(self, flow: mitmproxy.websocket.WebSocketFlow):
+    def websocket_start(self, flow: mitmproxy.http.HTTPFlow):
         """Websocket Start.
 
         A websocket connection has commenced.
         """
 
-    def websocket_message(self, flow: mitmproxy.websocket.WebSocketFlow):
+    def websocket_message(self, flow: mitmproxy.http.HTTPFlow):
         """Websocket Message.
 
         Called when a WebSocket message is received from the client or
@@ -116,50 +113,16 @@ class Interceptor:
         messages, corresponding to the BINARY and TEXT frame types.
         """
 
-    def websocket_error(self, flow: mitmproxy.websocket.WebSocketFlow):
+    def websocket_error(self, flow: mitmproxy.http.HTTPFlow):
         """Websocket Error.
 
         A websocket connection has had an error.
         """
 
-    def websocket_end(self, flow: mitmproxy.websocket.WebSocketFlow):
+    def websocket_end(self, flow: mitmproxy.http.HTTPFlow):
         """Websocket End.
 
         A websocket connection has ended.
-        """
-
-    # Network lifecycle
-    def clientconnect(self, layer: mitmproxy.proxy.protocol.Layer):
-        """Client Connect.
-
-        A client has connected to mitmproxy. Note that a connection can
-        correspond to multiple HTTP requests.
-        """
-
-    def clientdisconnect(self, layer: mitmproxy.proxy.protocol.Layer):
-        """Client Disconnect.
-
-        A client has disconnected from mitmproxy.
-        """
-
-    def serverconnect(self, conn: mitmproxy.connections.ServerConnection):
-        """Server Connect.
-
-        Mitmproxy has connected to a server. Note that a connection can
-        correspond to multiple requests.
-        """
-
-    def serverdisconnect(self, conn: mitmproxy.connections.ServerConnection):
-        """Server Disconnect.
-
-        Mitmproxy has disconnected from a server.
-        """
-
-    def next_layer(self, layer: mitmproxy.proxy.protocol.Layer):
-        """Next Layer.
-
-        Network layers are being switched. You may change which layer will
-        be used by returning a new layer object from this event.
         """
 
     # General lifecycle

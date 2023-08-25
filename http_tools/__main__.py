@@ -2,11 +2,8 @@
 # -*- coding: utf_8 -*-
 """The Main."""
 import os
-import sys
 import signal
 import argparse
-
-from mitmproxy import exceptions
 
 from http_tools.modules.runner import run_module
 from http_tools.web.server import (
@@ -57,9 +54,6 @@ def main():
                 parser.print_help()
         except (KeyboardInterrupt, RuntimeError):
             pass
-        except exceptions.ServerException as exp:
-            print(exp)
-            sys.exit(0)
         except Exception as exp:
             print('[ERROR] ' + str(exp))
     else:

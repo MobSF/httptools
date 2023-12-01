@@ -29,7 +29,8 @@ def main():
                               '2. repeat: Repeat captured requests.\n'
                               '3. intercept: Intercept and'
                               ' tamper the request.\n'
-                              '4. server: Start httptools server.\n'))
+                              '4. fuzzer: Fuzz for IDOR.\n'
+                              '5. server: Start httptools server.\n'))
     parser.add_argument('-p', '--port', help='Proxy Port',
                         default=settings.PROXY_PORT)
     parser.add_argument('-i', '--ip', help='Proxy Host',
@@ -42,7 +43,7 @@ def main():
     if argz.mode:
         try:
             init([settings.FLOWS_DIR])
-            if argz.mode in ['capture', 'intercept', 'repeat']:
+            if argz.mode in ['capture', 'intercept', 'repeat', 'fuzzer']:
                 run_module(argz.mode,
                            argz.name,
                            argz.ip,

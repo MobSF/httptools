@@ -25,10 +25,15 @@ def run_module(mode, project_name, host, port, upstream):
         arguments.extend([
             '--scripts', os.path.join(script_dir, 'capture.py'),
             '--save-stream-file', flow_file,
-            '--flow-detail', '0'])
+            '--flow-detail', 0])
     elif mode == 'intercept':
         arguments.extend([
+            '--quiet',
             '--scripts', os.path.join(script_dir, 'interceptor.py')])
+    elif mode == 'fuzzer':
+        arguments.extend([
+            '--quiet',
+            '--scripts', os.path.join(script_dir, 'fuzzer.py')])
     elif mode == 'repeat':
         arguments = [
             '-n',

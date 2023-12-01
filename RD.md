@@ -33,7 +33,7 @@ You can see the captured HTTP request/response pair in the web UI: http://127.0.
 
 ### Fuzz for Horizontal IDOR
 
-The IDOR fuzzing logic is available in `http_tools/modules/fuzzer.py`. The script loads the captured request and replaces authtoken/cookies that belongs to a different user, repeat the request and compare the response with the original response. If they matches then thats a possible IDOR.
+The IDOR fuzzing logic is available in `http_tools/modules/fuzzer.py`. The script loads the captured request and replaces authtoken/cookies that belong to a different user, repeat the request and compare the response with the original response. If they match then that's a possible IDOR.
 
 Modify the file `http_tools/modules/fuzzer.py`, at line no 100, Set the authtoken or cookies value in the `modified` variable.
 

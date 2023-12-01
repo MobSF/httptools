@@ -40,7 +40,7 @@ class ResponseMather:
             res = flow.response.get_text()
             oldf = JSON_RESPONSES[get_md5(req)]
             if get_md5(oldf.response.get_text()) == get_md5(res):
-                print(f'{C.BOLD}{C.FAIL}IDOR idenfitied!!{C.ENDC}')
+                print(f'{C.BOLD}{C.FAIL}IDOR DETECTED!!{C.ENDC}')
                 print(f'\n{C.BOLD}{C.OKCYAN}REQUEST BODY{C.ENDC}{C.OKCYAN}')
                 print(json.dumps(json.loads(req), indent=2))
                 print(f'{C.ENDC}{C.BOLD}{C.FAIL}\n'

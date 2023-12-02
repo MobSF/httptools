@@ -28,6 +28,7 @@ def run_module(mode, project_name, host, port, upstream):
             '--flow-detail', '0'])
     elif mode == 'intercept':
         arguments.extend([
+            '--quiet',
             '--scripts', os.path.join(script_dir, 'interceptor.py')])
     elif mode == 'repeat':
         arguments = [

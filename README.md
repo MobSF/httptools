@@ -7,7 +7,7 @@ Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82
 
 [![PyPI version](https://badge.fury.io/py/http-tools.svg)](https://badge.fury.io/py/http-tools)
 [![License](https://img.shields.io/:license-lgpl3+-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
-[![python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![http-tools](https://github.com/MobSF/httptools/workflows/http-tools/badge.svg?branch=master)](https://github.com/MobSF/httptools/actions)
 
 ### Install

@@ -44,5 +44,6 @@ setup(
     install_requires=[
         'mitmproxy==9.0.1',
         'markupsafe==2.0.1',
+        'graphql-py==0.8.1',
     ],
 )

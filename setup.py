@@ -43,6 +43,6 @@ setup(
     long_description_content_type='text/markdown',
     install_requires=[
         'mitmproxy==11.0.0',
-        'markupsafe>=2.1.3',
+        'markupsafe>=3.0.2',
     ],
 )

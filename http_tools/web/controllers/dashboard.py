@@ -4,6 +4,7 @@
 import os
 import glob
 from pathlib import PurePath
+from urllib.parse import urlparse
 import subprocess
 import threading
 
@@ -67,11 +68,21 @@ class RepeatHandler(tornado.web.RequestHandler):
             self.write({'error': 'No requests found for the project'})
             return
         proxy = self.get_argument('proxy', default='http://127.0.0.1:8080')
+        parsed_url = urlparse(proxy)
         flow_file = os.path.join(settings.FLOWS_DIR, project + '.flow')
-        trd = threading.Thread(target=subprocess.call, args=(
-            ['mitmdump', '-k', '-n', '-m',
-             'upstream:{}'.format(proxy),
-             '--client-replay', flow_file],))
+        script_dir = os.path.join(settings.BASE_PATH, 'modules')
+        # mitmproxy 11.0.0 has issues with client replay and upstream proxy
+        # See: https://github.com/mitmproxy/mitmproxy/issues/7280
+        args = ['mitmdump',
+                '--scripts', os.path.join(script_dir, 'upstream.py'),
+                '--set', 'connection_strategy=lazy',
+                '--set', 'upstream_cert=false',
+                '--set', f'proxy_ip={parsed_url.hostname}',
+                '--set', f'proxy_port={parsed_url.port}',
+                '--ssl-insecure',
+                '--no-server',
+                '--client-replay', flow_file]
+        trd = threading.Thread(target=subprocess.call, args=(args,))
         trd.setDaemon(True)
         trd.start()
         self.write({'success': 'Repeating request to upstream'})

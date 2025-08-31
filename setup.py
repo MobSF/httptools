@@ -17,7 +17,7 @@ description = ('httptools helps you to capture, repeat'
                '[mitmproxy](https://mitmproxy.org/)')
 setup(
     name='http-tools',
-    version='5.0.0',
+    version='6.0.0',
     description=description,
     author='Ajin Abraham',
     author_email='ajin25@gmail.com',
@@ -26,7 +26,7 @@ setup(
         'Intended Audience :: Developers',
         ('License :: OSI Approved :: GNU Lesser '
          'General Public License v3 or later (LGPLv3+)'),
-        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.12',
     ],
     packages=find_packages(include=[
         'http_tools', 'http_tools.*',
@@ -42,7 +42,7 @@ setup(
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
     install_requires=[
-        'mitmproxy==11.0.0',
+        'mitmproxy==12.1.2',
         'markupsafe>=3.0.2',
     ],
 )

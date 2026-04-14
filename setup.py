@@ -42,7 +42,7 @@ setup(
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
     install_requires=[
-        'mitmproxy==12.2.1',
+        'mitmproxy==12.2.2',
         'markupsafe>=3.0.3',
     ],
 )
